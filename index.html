@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>GoodSAM</title>
+    <meta name="author" content="Weiming Zhang">
+    <meta name="description" content="Project page of GoodSAM">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="eccv_logo.png">
+    <!-- Format -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="../format/app.css">
+    <link rel="stylesheet" href="../format/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <script src="../format/app.js"></script>
+
+  </head>
+
+<body style=“text-align: center;”>
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-12 text-center">
+                GoodSAM: Bridging Domain and Capacity Gaps via Segment Anything Model for Distortion-aware Panoramic Semantic Segmentation<br /> 
+                <small>
+                    Accepted to CVPR 2024
+                </small>
+            </h1>
+        </div> 
+
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+			<li>
+			<img src="./images/Zhangweiming.jpg" height="100px"><br>
+			<a href="" >
+                        Weiming Zhang
+                      </a>
+                      <br /> AI Thrust, HKUST(GZ)
+                      <br /> &nbsp &nbsp
+                    </li>
+        <li>
+			<img src="./images/Liuyexin.jpeg" height="100px"><br>
+			<a href="" >
+                        Yexin Liu
+                      </a>
+                      <br /> AI Thrust, HKUST(GZ)
+                      <br /> &nbsp &nbsp
+                    </li>
+        <li>
+			<img src="./images/xu1.png" height="100px"><br>
+			<a href="https://zhengxujosh.github.io/" >
+                        Xu Zheng
+                      </a>
+                      <br /> AI Thrust, HKUST(GZ)
+                      <br /> &nbsp &nbsp
+                    </li>
+		 <li>
+			    <img src="./images/Addision.png" height="100px"><br>
+                        <a href="https://addisonwang2013.github.io/vlislab/linwang.html">
+                           Addison Lin Wang
+                        </a>
+                        <br /> AI & CMA Thrust, HKUST(GZ) 
+			    <br/> Dept. of CSE, HKUST 
+                    </li>
+		</ul>
+            </div>
+        </div>
+
+        <!-- ##### Elements #####-->
+        <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+			    <a href="">
+                            <img src="./images/arxiv.png" height="120px"><br>
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+			    <!-- <a href="">
+                            <img src="./images/youtube_icon.jpg" height="100px"><br>
+                                <h4><strong>Video</strong></h4>
+                            </a>
+                        </li>
+                        <li> -->
+                            <a href="https://github.com/weimingz996/GoodSAM">
+                            <img src="./images/github_icon.jpg" height="100px"><br>
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+
+                        <!-- <li>
+                            
+                            <img src="./images/colab_icon.jpg" height="100px"><br>
+                                <h4><strong>Colab</strong></h4>
+                            </a>
+                        </li> -->
+ 
+
+<!--                         <li>
+                            <a href="https://github.com/jiazhou-garland/ELIP/blob/master/Appendix.pdf">
+                            <img src="./images/slide_icon.jpg" height="100px"><br>
+                                <h4><strong>Supp</strong></h4>
+                            </a>
+                        </li>                      -->
+                        <li>
+                            <a href="https://vlislab22.github.io/vlislab/">
+                            <img src="./images/lab_logo.png" height="100px"><br>
+                                <h4><strong>Vlislab</strong></h4>
+                            </a>
+                        </li>                       
+                      
+                    </ul>
+                </div>
+        </div>
+
+        <!-- ##### Abstract #####-->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                    This paper tackles a novel yet challenging problem: how to transfer knowledge from the emerging Segment Anything Model (SAM) -- which reveals impressive zero-shot instance segmentation capacity -- to learn a compact panoramic semantic segmentation model, \ie, student, without requiring any labeled data. This poses considerable challenges due to SAM's inability to provide semantic labels and the large capacity gap between SAM and the student. To this end, we propose a novel framework, called GoodSAM, that introduces a teacher assistant (TA) to provide semantic information, integrated with SAM to generate ensemble logits to achieve knowledge transfer. Specifically, we propose a Distortion-Aware Rectification (DAR) module that first addresses the distortion problem of panoramic images by imposing prediction-level consistency and boundary enhancement. This subtly enhances TA's prediction capacity on panoramic images. DAR then incorporates a cross-task complementary fusion block to adaptively merge the predictions of SAM and TA to obtain more reliable ensemble logits. Moreover, we introduce a Multi-level Knowledge Adaptation (MKA) module to efficiently transfer the multi-level feature knowledge from TA and ensemble logits to learn a compact student model. Extensive experiments on two benchmarks show that our GoodSAM achieves a remarkable +3.75% mIoU improvement over the state-of-the-art (SoTA) domain adaptation methods. Also, Our most lightweight model achieves comparable performance to the SoTA methods with only 3.7M parameters.
+                </p>
+            </div>
+        </div>
+
+ 
+
+        <!-- ##### Results #####-->
+
+     <div class="row">     
+        <div class="col-md-8 col-md-offset-2">
+            <h3>
+                Overall framework of our GoodSAM
+            </h3>
+		<p class="text-justify">
+			An overview of our GoodSAM.
+		</p>
+            <img src="./images/framework.png" class="img-responsive" alt="vis_res"  class="center" >
+      	</div>
+    </div>
+
+   <!-- ##### BibTex #####-->
+        <hr>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    BibTeX
+                </h3>
+ 
+                <div class="row align-items-center">
+                    <div class="col py-3">
+                        <pre class="border">             
+<!-- @article{,
+  title={Semantics, Distortion, and Style Matter: Towards Source-free UDA for Panoramic Segmentation},
+  author={Zheng,Xu, Zhou Pengyuan, Athanasios Vasilakos and Wang,Lin},
+  journal={CVPR},
+  year={2024}
+} -->
+</pre>
+                    </div>
+                </div>
+              
+    
+          </div>
+          
+        </div>
+    </div>
+</body>
+</html>
