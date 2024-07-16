@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>GoodSAM</title>
+    <title>GoodSAM++</title>
     <meta name="author" content="Weiming Zhang">
-    <meta name="description" content="Project page of GoodSAM">
+    <meta name="description" content="Project page of GoodSAM++">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" href="eccv_logo.png">
     <!-- Format -->
@@ -26,9 +26,9 @@
     <div class="container" id="main">
         <div class="row">
             <h1 class="col-md-12 text-center">
-                GoodSAM: Bridging Domain and Capacity Gaps via Segment Anything Model for Distortion-aware Panoramic Semantic Segmentation<br /> 
+                GoodSAM++: Bridging Domain and Capacity Gaps via Segment Anything Model for Distortion-aware Panoramic Semantic Segmentation<br /> 
                 <small>
-                    Accepted to CVPR 2024
+                    ArXiv
                 </small>
             </h1>
         </div> 
@@ -128,8 +128,8 @@
                     Abstract
                 </h3>
                 <p class="text-justify">
-                    This paper tackles a novel yet challenging problem: how to transfer knowledge from the emerging Segment Anything Model (SAM) -- which reveals impressive zero-shot instance segmentation capacity -- to learn a compact panoramic semantic segmentation model, \ie, student, without requiring any labeled data. This poses considerable challenges due to SAM's inability to provide semantic labels and the large capacity gap between SAM and the student. To this end, we propose a novel framework, called GoodSAM, that introduces a teacher assistant (TA) to provide semantic information, integrated with SAM to generate ensemble logits to achieve knowledge transfer. Specifically, we propose a Distortion-Aware Rectification (DAR) module that first addresses the distortion problem of panoramic images by imposing prediction-level consistency and boundary enhancement. This subtly enhances TA's prediction capacity on panoramic images. DAR then incorporates a cross-task complementary fusion block to adaptively merge the predictions of SAM and TA to obtain more reliable ensemble logits. Moreover, we introduce a Multi-level Knowledge Adaptation (MKA) module to efficiently transfer the multi-level feature knowledge from TA and ensemble logits to learn a compact student model. Extensive experiments on two benchmarks show that our GoodSAM achieves a remarkable +3.75% mIoU improvement over the state-of-the-art (SoTA) domain adaptation methods. Also, Our most lightweight model achieves comparable performance to the SoTA methods with only 3.7M parameters.
-                </p>
+                    This paper presents GoodSAM++, a novel framework utilizing the powerful zero-shot instance segmentation capability of SAM (i.e., teacher) to learn a compact panoramic semantic segmentation model, i.e., student, without requiring any labeled data. GoodSAM++ addresses two critical challenges: 1) SAM's inability to provide semantic labels and inherent distortion problems of panoramic images;2) the significant capacity disparity between SAM and the student. The `out-of-the-box' insight of GoodSAM++ is to introduce a teacher assistant (TA) to provide semantic information for SAM, integrated with SAM to obtain reliable pseudo semantic maps to bridge both domain and capacity gaps. To make this possible, we first propose a Distortion-Aware Rectification (DARv2) module to address the domain gap. It effectively mitigates the object deformation and distortion problem in panoramic images to obtain pseudo semantic maps. We then introduce a Multi-level Knowledge Adaptation (MKA) module to efficiently transfer the semantic information from the TA and pseudo semantic maps to our compact student model, addressing the significant capacity gap. We conduct extensive experiments on both outdoor and indoor benchmark datasets, showing that our GoodSAM++ achieves a remarkable performance improvement over the state-of-the-art (SOTA) domain adaptation methods. Moreover, diverse open-world scenarios demonstrate the generalization capacity of our GoodSAM++. Last but not least, our most lightweight student model achieves comparable performance to the SOTA models, e.g.,[1] with only 3.7 million parameters.
+
             </div>
         </div>
 
@@ -140,10 +140,10 @@
      <div class="row">     
         <div class="col-md-8 col-md-offset-2">
             <h3>
-                Overall framework of our GoodSAM
+                Overall framework of our GoodSAM++
             </h3>
 		<p class="text-justify">
-			An overview of our GoodSAM.
+			An overview of our GoodSAM++.
 		</p>
             <img src="./images/framework.png" class="img-responsive" alt="vis_res"  class="center" >
       	</div>
